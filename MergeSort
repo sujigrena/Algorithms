@@ -1,0 +1,25 @@
+def Merge(A,beg,mid,end):
+    L=A[beg:mid+1]
+    M=A[mid+1:end+1]
+    L.append(9999999)
+    M.append(9999999)
+    i=0
+    j=0
+    for k in range(beg,end+1):
+        if(L[i]<M[j]):
+            A[k]=L[i]
+            i+=1
+        else:
+            A[k]=M[j]
+            j+=1
+
+def MergeSort(A,beg,end):
+    if beg<end:
+        mid=(beg+end)//2
+        MergeSort(A, beg, mid)
+        MergeSort(A, mid+1, end)
+        Merge(A, beg, mid, end)
+
+a=[9,8,7,6,5]       
+print(MergeSort(a,0, 4))
+print(a)
