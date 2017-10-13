@@ -1,0 +1,18 @@
+def BinarySearch(A,start,end,k):
+  """if(start==end):
+    if(A[start]==k):
+      return start
+    else:
+      return -1
+  else:"""
+  if(start<=end):
+    mid=(start+end)//2
+    if(A[mid]==k):
+      return mid
+    elif(A[mid]<k):
+      return BinarySearch(A,mid+1,end,k)
+    else:
+      return BinarySearch(A,start,mid,k)
+  return -1
+      
+print(BinarySearch([1,2,3,4,5],0,4,7))
